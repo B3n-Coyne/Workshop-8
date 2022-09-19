@@ -6,7 +6,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-public class GenerateCube : MonoBehaviour
+public class GenerateRoundCube : MonoBehaviour
 {
     [SerializeField] private Shader shader;
     [SerializeField] private PointLight pointLight;
@@ -170,47 +170,59 @@ public class GenerateCube : MonoBehaviour
 
         mesh.SetNormals(new[]
         {
-            topNormal, // Top
-            topNormal,
-            topNormal,
-            topNormal,
-            topNormal,
-            topNormal,
+            // Top
+            (new Vector3(-1.0f, 1.0f, -1.0f)).normalized,
+            new Vector3(-1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(1.0f, 1.0f, 1.0f).normalized,
 
-            bottomNormal, // Bottom
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
+            new Vector3(-1.0f, 1.0f, -1.0f).normalized,
+            new Vector3(1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(1.0f, 1.0f, -1.0f).normalized,
+            
+            // Bottom face
+            new Vector3(-1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(1.0f, -1.0f, 1.0f).normalized,
+            new Vector3(-1.0f, -1.0f, 1.0f).normalized,
 
-            leftNormal, // Left
-            leftNormal,
-            leftNormal,
-            leftNormal,
-            leftNormal,
-            leftNormal,
+            new Vector3(-1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(1.0f, -1.0f, 1.0f).normalized,
 
-            rightNormal, // Right
-            rightNormal,
-            rightNormal,
-            rightNormal,
-            rightNormal,
-            rightNormal,
+            // Left face
+            new Vector3(-1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(-1.0f, -1.0f, 1.0f).normalized,
+            new Vector3(-1.0f, 1.0f, 1.0f).normalized,
 
-            frontNormal, // Front
-            frontNormal,
-            frontNormal,
-            frontNormal,
-            frontNormal,
-            frontNormal,
+            new Vector3(-1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(-1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(-1.0f, 1.0f, -1.0f).normalized,
 
-            backNormal, // Back
-            backNormal,
-            backNormal,
-            backNormal,
-            backNormal,
-            backNormal
+            // Right face
+            new Vector3(1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(1.0f, -1.0f, 1.0f).normalized,
+
+            new Vector3(1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(1.0f, 1.0f, -1.0f).normalized,
+            new Vector3(1.0f, 1.0f, 1.0f).normalized,
+
+            // Front face
+            new Vector3(-1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(1.0f, -1.0f, 1.0f).normalized,
+            new Vector3(1.0f, 1.0f, 1.0f).normalized,
+
+            new Vector3(-1.0f, 1.0f, 1.0f).normalized,
+            new Vector3(-1.0f, -1.0f, 1.0f).normalized,
+            new Vector3(1.0f, -1.0f, 1.0f).normalized,
+
+            // Back face
+            new Vector3(-1.0f, 1.0f, -1.0f).normalized,
+            new Vector3(1.0f, 1.0f, -1.0f).normalized,
+            new Vector3(1.0f, -1.0f, -1.0f).normalized,
+
+            new Vector3(-1.0f, -1.0f, -1.0f).normalized,
+            new Vector3(-1.0f, 1.0f, -1.0f).normalized,
+            new Vector3(1.0f, -1.0f, -1.0f).normalized
         });
 
         // Define the indices (same as workshop 2).
